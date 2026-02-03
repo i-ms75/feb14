@@ -1,0 +1,78 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.question {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 40px;
+}
+
+.buttons {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px; /* Add some space for the video */
+}
+
+.yesBtn, .noBtn {
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.yesBtn {
+  background-color: #4CAF50; /* Green */
+}
+
+.yesBtn:disabled {
+    background-color: #a5d6a7;
+    cursor: not-allowed;
+}
+
+.noBtn {
+  background-color: #f44336; /* Red */
+  transition: top 0.3s ease-in-out, left 0.3s ease-in-out, background-color 0.3s;
+}
+
+.yesBtn:active, .noBtn:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.videoContainer {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  overflow: hidden;
+  padding-top: 0; /* Initially zero height */
+  opacity: 0;
+  transition: padding-top 0.5s ease, opacity 0.5s ease;
+}
+
+.videoContainer.videoVisible {
+  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  opacity: 1;
+}
+
+.videoContainer iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
